@@ -17,24 +17,23 @@ const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
 const dontUpgrade = [
-  'alefragnani.Bookmarks', // https://github.com/alefragnani/vscode-bookmarks/issues/315
-  'alefragnani.project-manager', // https://github.com/alefragnani/vscode-bookmarks/issues/315
-  'ms-vscode.js-debug', // Version on master (1.52.1) is older than the latest release (1.52.2)
   'file-icons.file-icons', // Git submodule uses unsupported 'git@github.com' URL format
   'DotJoshJohnson.xml', // https://github.com/DotJoshJohnson/vscode-xml/issues/345
-  'dracula-theme.theme-dracula', // https://github.com/dracula/visual-studio-code/issues/168
   'wingrunr21.vscode-ruby', // This script gets confused and switches to rebornix.Ruby .vsix release (same repo)
   'andreweinand.mock-debug', // https://github.com/open-vsx/publish-extensions/pull/274#issue-562452193
   'DigitalBrainstem.javascript-ejs-support', // https://github.com/Digitalbrainstem/ejs-grammar tagged 1.3.1 but hasn't had a new release tag in over year
   'ecmel.vscode-html-css', // https://github.com/ecmel/vscode-html-css/issues/213
   'ms-vscode.atom-keybindings', // https://github.com/microsoft/vscode-atom-keybindings/releases didn't have a release in 2 years
-  'ms-vscode.node-debug', // Recent releases are not being tagged in https://github.com/microsoft/vscode-node-debug
   'wmaurer.change-case', // https://github.com/wmaurer/vscode-change-case/releases didn't have a release in 6 years
-  'jebbs.plantuml', // https://github.com/open-vsx/publish-extensions/issues/272 and https://github.com/open-vsx/publish-extensions/pull/290/files#r576063404
-  'ms-vscode.hexeditor', // https://github.com/open-vsx/publish-extensions/pull/290/files#r576063874
-  'mtxr.sqltools', // https://github.com/open-vsx/publish-extensions/pull/290/files#r576067381
+  'jebbs.plantuml', // https://github.com/open-vsx/publish-extensions/pull/290/files#r576063404
+  'ms-vscode.hexeditor', // https://github.com/open-vsx/publish-extensions/pull/290#discussion_r576063874
+  'mtxr.sqltools', // https://github.com/open-vsx/publish-extensions/pull/290#discussion_r576067381
   'lextudio.restructuredtext', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852958
-  'haskell.haskell', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852958
+  'haskell.haskell', // https://github.com/open-vsx/publish-extensions/pull/317#discussion_r598852655
+  'dbaeumer.vscode-eslint', // https://github.com/microsoft/vscode-eslint/releases/ currently has only Insider releases
+  'miguelsolorio.fluent-icons', // Latest release (0.0.1) is way behind latest tag (0.0.7)
+  'eamodio.tsl-problem-matcher', // Latest release (0.0.4) was never published to https://github.com/eamodio/vscode-tsl-problem-matcher/releases
+  'vscode-org-mode.org-mode', // https://github.com/vscode-org-mode/vscode-org-mode doesn't have releases or tags, so we've pinned the 1.0.0 commit
 ];
 
 (async () => {
